@@ -82,6 +82,7 @@ if st.session_state["login"]:
             with col1:
                 if st.button("삭제", key="confirm_delete"):
                     db.collection("todo_users").document(st.session_state["todo_user_id"]).delete()
+                    db.collection("with_todos").document(st.session_state["todo_user_id"]).delete()
                     st.session_state["login"] = False
                     st.session_state["delete_account"] = False
                     st.rerun()
