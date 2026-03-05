@@ -59,6 +59,7 @@ else:
             else:
                 db.collection("todo_users").document(new_id).set({"username": username, "password": new_pw})
                 st.success("회원가입 완료! 로그인 탭에서 접속하세요.")
+                time.sleep(2)
                 st.rerun()
 
 if st.session_state["login"]:
@@ -121,7 +122,7 @@ if st.session_state["login"]:
             todo = todoc.to_dict()
             if todo["todo_user_id"] == st.session_state["todo_user_id"]:
                 check = st.checkbox(
-                    f"[{todo['category']}] {todo['task']}", 
+                    f"{todo['todo_user_name']} : [{todo['category']}] {todo['task']}", 
                     key=f"check_{todoc.id}"
                 )
                 if check:
