@@ -137,6 +137,6 @@ if st.session_state["login"]:
             for doc_id in selected_tasks:
                 db.collection("with_todos").document(doc_id).delete()
             st.balloons()
-            st.success(f"{len(selected_tasks)}개의 할 일을 완료했습니다!")
+            st.success("할 일을 완료했습니다!")
             time.sleep(2)
             st.rerun()
