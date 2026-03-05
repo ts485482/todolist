@@ -119,11 +119,11 @@ if st.session_state["login"]:
         for todoc in todocs:
             todo = todoc.to_dict()
             if todo["todo_user_id"] == st.session_state["todo_user_id"]:
-                is_checked = st.checkbox(
+                check = st.checkbox(
                     f"[{todo['category']}] {todo['task']}", 
                     key=f"check_{todoc.id}"
                 )
-                if is_checked:
+                if check:
                     selected_tasks.append(todoc.id)
             else:
                 st.text(f"🔒 {todo.get('todo_user_name', '알수없음')} : {todo['category']} - {todo['task']}")
