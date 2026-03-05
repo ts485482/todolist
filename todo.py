@@ -130,9 +130,9 @@ if st.session_state["login"]:
             else:
                 st.text(f"🔒 {todo.get('todo_user_name', '알수없음')} : {todo['category']} - {todo['task']}")
         
-        submit_done = st.form_submit_button("선택한 항목 완료 및 삭제")
+        done = st.form_submit_button("선택한 항목 완료 및 삭제")
 
-    if submit_done:
+    if done:
         if not selected_tasks:
             st.warning("완료할 항목을 선택해주세요.")
         else:
